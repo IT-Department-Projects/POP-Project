@@ -1,15 +1,15 @@
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-import javax.swing.UIManager;
-import java.awt.SystemColor;
+
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.zip.InflaterInputStream;
+import java.util.Date;
 
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -45,17 +45,21 @@ public class FtpServer {
 		 
 		Socket socket = serverSocket.accept();
 		lblNewLabel_4.setText("new Client accepted");
-		lblNewLabel_4.setForeground(new Color(127, 255, 0));
+		lblNewLabel_4.setForeground(new Color(111, 220, 111));
 		in = socket.getInputStream();
-		out = new FileOutputStream("test.txt");
+		
+		long t = new Date().getTime();
+		//File f = File.createTempFile("usr-", ".txt");
+		
+		out = new FileOutputStream(t + "");
 		
 		byte [] b = new byte[16*1024];
 		
 		int count ;
-		while ((count = in.read(b)) >0) {
+		while ((count = in.read(b)) > 0) {
 			out.write(b, 0, count);
 			lblNewLabel_5.setText("new file recieved !");
-			lblNewLabel_5.setForeground(Color.ORANGE);
+			lblNewLabel_5.setForeground(new Color (111, 220, 111));
 		}
 		
 	}
@@ -104,7 +108,7 @@ public class FtpServer {
 		
 		lblNewLabel_3 = new JLabel("Running");
 		lblNewLabel_3.setFont(new Font("Dialog", Font.BOLD, 18));
-		lblNewLabel_3.setForeground(new Color(255, 255, 0));
+		lblNewLabel_3.setForeground(new Color(111, 220, 111));
 		lblNewLabel_3.setBounds(129, 120, 249, 22);
 		frame.getContentPane().add(lblNewLabel_3);
 		

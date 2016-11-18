@@ -84,9 +84,10 @@ public class FtpClient {
 			}
 		});
 		btnBrowse.setFont(new Font("Comic Sans MS", Font.BOLD, 18));
-		btnBrowse.setForeground(Color.ORANGE);
-		btnBrowse.setBackground(Color.DARK_GRAY);
-		btnBrowse.setBounds(510, 12, 105, 33);
+		btnBrowse.setForeground(Color.WHITE);
+		btnBrowse.setBackground(new Color(153, 153, 153));
+		btnBrowse.setBounds(510, 12, 250, 33);
+		//btnBrowse.set
 		frame.getContentPane().add(btnBrowse);
 		
 		textField = new JTextField();
@@ -100,6 +101,7 @@ public class FtpClient {
 			public void actionPerformed(ActionEvent e) {
 				
 				File file = new File(str);
+				String x = file.getName();
 				
 				byte [] b = new byte[16*1024];
 				
@@ -129,8 +131,8 @@ public class FtpClient {
 			}
 		});
 		btnSend.setFont(new Font("Dialog", Font.BOLD, 20));
-		btnSend.setForeground(Color.DARK_GRAY);
-		btnSend.setBackground(Color.ORANGE);
+		btnSend.setForeground(Color.WHITE);
+		btnSend.setBackground(new Color(111, 220, 111));
 		btnSend.setBounds(475, 211, 117, 48);
 		frame.getContentPane().add(btnSend);
 	}
